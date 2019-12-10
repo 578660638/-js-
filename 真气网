@@ -1,0 +1,65 @@
+＃抓包分析数据，xrh断电调试
+＃寻找加密函数，追踪到加密函数本身，扣代码
+＃寻找加密响应的代码和解密响应
+
+
+import requests
+import json
+import execjs
+import requests
+import time
+
+
+def get_js_function(js_path, func_name, func_args):
+    '''
+    获取指定目录下的js代码, 并且指定js代码中函数的名字以及函数的参数。
+    :param js_path: js代码的位置
+    :param func_name: js代码中函数的名字
+    :param func_args: js代码中函数的参数
+    :return: 返回调用js函数的结果
+    '''
+
+    with open(js_path, encoding='utf-8') as fp:
+        js = fp.read()
+        ctx = execjs.compile(js)
+        return ctx.call(func_name, func_args)
+def get_js_function1(js_path, func_name, func_args1,func_args2):
+    '''
+    获取指定目录下的js代码, 并且指定js代码中函数的名字以及函数的参数。
+    :param js_path: js代码的位置
+    :param func_name: js代码中函数的名字
+    :param func_args: js代码中函数的参数
+    :return: 返回调用js函数的结果
+    '''
+
+    with open(js_path, encoding='utf-8') as fp:
+        js = fp.read()
+        ctx = execjs.compile(js)
+        return ctx.call(func_name, func_args1,func_args2)
+
+
+
+object1 = {'city': "上海"}
+a= get_js_function1('真气网.js','jiami',object1,'GETDATA')
+
+
+data={'d':a}
+headers ={
+'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate, br',
+'Accept-Language': 'zh-CN,zh;q=0.9',
+'Connection': 'keep-alive',
+'Content-Length': '380',
+'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+'Cookie': 'UM_distinctid=16eedd8d9310-0cc97790d52ed4-36664c08-1fa400-16eedd8d93438d; CNZZDATA1254317176=1003153622-1575948298-https%253A%252F%252Fwww.so.com%252F%7C1575948298',
+'Host': 'www.aqistudy.cn',
+'Origin': 'https://www.aqistudy.cn',
+'Referer': 'https://www.aqistudy.cn/html/city_realtime.html?v=2.3',
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+'X-Requested-With': 'XMLHttpRequest',
+}
+url = 'https://www.aqistudy.cn/apinew/aqistudyapi.php'
+response = requests.post(url,data=data,headers=headers)
+data1 = response.text
+a= get_js_function('真气网.js','decodeData',data1)
+print(json.loads(a))
