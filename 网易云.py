@@ -50,5 +50,10 @@ header = {
 
 url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_1374056689?csrf_token='
 request1 = requests.post(url, data=data, headers=header)
-print(request1.text)
+a= request1.json()
+if a.get('comments'):
+    for i in a.get('comments'):
+        if i.get('content'):
+            print(i['content'])
+
 
