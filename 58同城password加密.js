@@ -647,7 +647,7 @@ function encryptString(str, e, m) {
     return RSAUtils.encryptedString(key, str)
 }
 
-
+//调试断点， rsaModulus固定不变，直接传参
 function password(e) {
    var r = 1411093327735 - (new Date).getTime(),
     o = (new Date).getTime() + r;
