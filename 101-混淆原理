@@ -1,0 +1,11 @@
+const a ='123+4568'
+
+const options ={
+    compact:true,
+    controlFlowFlattening:true
+}
+const obfu= require('javascript-obfuscator')
+function obfu1(code,options){
+    return obfu.obfuscate(code,options).getObfuscatedCode()
+}
+console.log(obfu1(a,options))
