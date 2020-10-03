@@ -1,0 +1,61 @@
+var _0x472ff2=[]
+var _0x126b581 =function (_0x223234,_0x24464b){return _0x223234(_0x24464b);}
+
+function _0x1a395d() {
+    var _0x5027d7 = Math.random();
+    _0x402f82 = Math.round(_0x5027d7 * 21);
+    console.log(_0x402f82)
+    _0x472ff2[0x1] = _0x402f82.toString(0x10);
+    _0x472ff2[0x2] = _0x402f82.toString(0x10).length;
+    return _0x402f82;
+}
+function _0xd74c71(_0x5a15ef) {
+    return _0x5a15ef.split('').reverse().join('');
+}
+finit={
+    0: 'navbar navbar-default yq-header',
+    1: 'nav navbar-toolbar navbar-right navbar-toolbar-right yq-navbar-toolbar',
+    2: 'yq-dropdown-menu-media-apps',
+    3: 'yq-navbar-menuIcon-24 yq-head-apps',
+    4: 'dropdown-menu yq-moreapp-container',
+    5: 'list-group yq-list-group-moreapp clearfix',
+    6: 'hide yq-dropdown-menu-media-msg',
+    7: 'yq-head-msg yq-navbar-menuIcon-24',
+    8: 'yq-msg-nomsg vertical-align panel text-center hide',
+    9: 'yq-msg-network-err vertical-align panel text-center hide',
+    10: 'dropdown-menu dropdown-menu-media yq-dropdown-menu-media-user',
+    11: 'dropdown-menu-footer yq-user-footer clearfix',
+    12: 'jcHeaderInput margin-horizontal-10 yq-input-container',
+    13: 'dropdown-menu dropdown-menu-media yq-track-dropdown',
+    14: 'yq-more-track-container clearfix',
+    15: 'yq-tools-small',
+    16: 'navbar-brand-logo hidden-xs.yq-default-logo',
+    17: 'navbar-brand-logo visible-xs.yq-default-logo',
+    18: 'tab-content yq-panel-tracklist scrollable is-enabled scrollable-vertical',
+    19: 'yq-panel-gad',
+    20: 'modal-dialog yq-modal-dialog',
+
+};
+function _0x3c4889(_0x3619b7) {
+    var _0x146bce = '';
+    for (var _0x328475 = 0x0; cHQol(_0x328475, _0x3619b7["length"]); _0x328475++) {
+        if (_0x146bce == '')
+            _0x146bce = _0x3619b7["charCodeAt"](_0x328475)["toString"](0x10);
+        else
+            _0x146bce += _0x3619b7["charCodeAt"](_0x328475)["toString"](0x10);
+    }
+    return _0x146bce;
+}
+var ww = finit[_0x1a395d()]
+console.log(_0x126b58 = ww + '/' + new Date().getTime()["toString"](0x10) + '/' + 969["toString"](0x10) + '/' + true)
+function cHQol(_0x323b0e, _0x3e7728) {
+    return _0x323b0e < _0x3e7728;
+}
+console.log(_0x126b581(_0x3c4889, _0xd74c71(_0x126b58)))
+// console.log(_0x1a395d())
+//657572742f3963332f39303665656635613137312f34322d6e6f6349756e656d2d72616276616e2d71792067736d2d646165682d717971260da2dac18fadb37
+//657572742f3963332f61623734666635613137312f7d3b2962343634343278305f2834333233323278305f206e72757465727b2962343634343278305f2c34333233323278305f286161206e6f6974636e7566
+//657572742f3963332f61363639666635613137312f7d3b2962343634343278305f2834333233323278305f206e72757465727b2962343634343278305f2c34333233323278305f286161206e6f6974636e7566
+//657572742f3564312f36323466356535613137312f6f676f6c2d746c75616665642d71792073782d656c6269736976206f676f6c2d646e6172622d72616276616e
+//657572742f3564312f36323466356535613137312f6f676f6c2d746c75616665642d71792073782d656c6269736976206f676f6c2d646e6172622d72616276616e11226179d60318fadb37
+//657572742f3564312f39313931356535613137312f726573752d616964656d2d756e656d2d6e776f64706f72642d717920616964656d2d756e656d2d6e776f64706f726420756e656d2d6e776f64706f7264a1202cc5b0118fadb37

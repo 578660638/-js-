@@ -1,0 +1,60 @@
+import re
+import requests
+from lxml.etree import HTML
+res = requests.get(
+    url="https://www.aqistudy.cn/html/city_realtime.php?v=2.3"
+)
+res = HTML(res.text)
+url = res.xpath("/html/body/script[2]/@src")[0].replace("..", "https://www.aqistudy.cn")
+res = requests.get(
+    url=url
+)
+s = re.compile('\|(\w{32})\|')
+appId = s.findall(res.text)[0]
+print("appId:",appId)
+s = re.compile('\'(\|.*?)\'\.split')
+resp = s.findall(res.text)[0]
+d = {
+    'aes_local_key': 'emhlbnFpcGFsbWtleQ==',
+    'aes_local_iv': 'emhlbnFpcGFsbWl2',
+}
+ss = resp.split("|")
+print(res.text)
+for s in ss:
+    if len(s) == 9 and s != "secretkey" and s != "newObject" and s != "timestamp" and s != "stringify" and s != "undefined":
+        print("参数名为：{}".format(s))
+    if s.startswith("ask"):
+        a = re.compile('\|(a\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("asi"):
+        a = re.compile('\|(b\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("ack"):
+        a = re.compile('\|(d\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("aci"):
+        a = re.compile('\|(f\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("dsk"):
+        a = re.compile('\|(h\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("dsi"):
+        a = re.compile('\|(x\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("dck"):
+        a = re.compile('\|(o\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+    elif s.startswith("dci"):
+        a = re.compile('\|(p\w{15})')
+        a = a.findall(resp)[0]
+        d[s] = a
+print(d)
+
+
